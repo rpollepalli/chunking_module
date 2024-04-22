@@ -1,0 +1,8 @@
+https://api.python.langchain.com/en/latest/_modules/langchain_experimental/text_splitter.html#SemanticChunker
+https://api.python.langchain.com/en/latest/_modules/langchain_text_splitters/character.html#RecursiveCharacterTextSplitter
+
+https://api.python.langchain.com/en/latest/_modules/langchain_text_splitters/base.html#TextSplitter
+
+https://python.langchain.com/docs/modules/data_connection/document_transformers/recursive_json_splitter/
+
+https://mer.vin/2024/03/chunking-strategy/
