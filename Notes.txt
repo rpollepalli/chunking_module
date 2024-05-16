@@ -6,3 +6,30 @@ https://api.python.langchain.com/en/latest/_modules/langchain_text_splitters/bas
 https://python.langchain.com/docs/modules/data_connection/document_transformers/recursive_json_splitter/
 
 https://mer.vin/2024/03/chunking-strategy/
+
+------------------------------------------------------
+below code is from : https://stackoverflow.com/questions/74015953/how-to-read-the-table-from-the-word-document-and-make-proper-dataframe-structure
+
+import pandas as pd
+from docx import Document
+
+doc = Document('input1.docx')
+
+table = doc.tables[0]
+start_row = 2 # row that should become the column names
+data = [[cell.text for cell in row.cells] for i, row in enumerate(table.rows) 
+        if i >= start_row]
+df = pd.DataFrame(data[1:], columns=data[0])
+
+print(df)
+
+  Rows start   day1   day2   day3   day4   day5   day6
+0          1  test1  test2  test3  test4  test5  test6
+1          2  test1  test2  test3  test4  test5  test6
+2          3  test1  test2  test3  test4  test5  test6
+3          4  test1  test2  test3  test4  test5  test6
+4          5  test1  test2  test3  test4  test5  test6
+=================================================================================
+If you want values in Rows start as integers rather than strings, chain df.astype:
+
+df = pd.DataFrame(data[1:], columns=data[0]).astype({'Rows start': int})
